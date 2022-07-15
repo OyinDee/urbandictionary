@@ -6,17 +6,16 @@ import axios from 'axios'
 
 export default function Each(props) {
     const navigate=useNavigate()
-    const[definitions,setDef]=useState([]);
     const location = useLocation();
     const gobackhome=()=>{
         navigate('/')
     }
     useEffect(() => {
         return () => {
-           setDef(location.state.defs)
+            localStorage.definitions=location.state.defs
         };
     });
-    
+    const definitions=location.state.defs
     return (
         <>
         <div className="h-screen bg-sky-700 dark:bg-blue-900">
